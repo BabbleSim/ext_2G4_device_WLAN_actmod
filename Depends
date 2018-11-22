@@ -1,0 +1,5 @@
+ext_2G4_device_WLAN_actmod: \
+libUtilv1 \
+libPhyComv1 \
+ext_2G4_libPhyComv1 \
+libRandv2

@@ -1,0 +1,17 @@
+*.o
+*.a
+*.so
+*.d
+*.asv
+*.Tsymbols
+*.gcda
+*.gcno
+*~
+~*.~*
+RunResults.txt
+OldResults.txt
+NewResults.txt
+.*project
+.settings/*
+octave-workspace
+bs_device_*
