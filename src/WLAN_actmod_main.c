@@ -109,17 +109,22 @@ int main(int argc, char *argv[]) {
     Time = args.times_start[i];
 
     while (Time < args.times_end[i]) {
-      calculate_next_transmission(Time, &tx_s.start_time, &tx_s.end_time, &args);
-      if ( tx_s.end_time > args.times_end[i]){
+      bs_time_t start_time, end_time;
+
+      calculate_next_transmission(Time, &start_time, &end_time, &args);
+
+      if ( end_time > args.times_end[i]){
         break;
       }
+      tx_s.start_time = start_time;
+      tx_s.end_time = end_time;
 
       if (WLAN_actmod_Tx_in_port(&tx_s, choose_a_port(&args))) {
         i = args.n_times_start; //to also exit the for loop
         break; //while
       }
 
-      Time = tx_s.end_time;
+      Time = end_time;
     }
   }
 
